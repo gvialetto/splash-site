@@ -1,0 +1,73 @@
+@import "kouto-swiss"
+
+normalize()
+
+// mixins
+
+highlighted(property)
+    {property} #d95c5c
+    &.final
+        transition property 0.5s ease-out
+
+// css
+
+body
+    gs("fluid", 16)
+    background-color #EEEEEE
+    color #333333
+    padding-top 1.5rem
+    text-align: center
+
+#container
+    col(10)
+    offset(3)
+
+.column
+    row()
+    margin-top 1.2rem
+    margin-bottom 1.2rem
+
+.column#icon-links a
+    display inline-block
+    text-decoration none
+    width 3.5rem
+    height 3.5rem
+    transition opacity 0.5s ease-in
+    opacity 0.2
+    &:visited
+        opacity 0.5
+    &:hover
+        opacity 1
+    for $social in twitter github linkedin
+        &#{$social}
+            background-image url(svg/$social.svg)
+            background-repeat no-repeat
+            background-size cover
+            margin 0.30rem
+
+#avatar
+    highlighted(background-color)
+    height 230px
+    border-radius 500rem
+    padding 0.75rem
+    margin auto
+
+blockquote
+    font-family font-stack("Helvetica")
+    font-size 1.3rem
+    line-height 1.8rem
+    letter-spacing 0.07rem
+    margin-top: 3.0rem
+
+blockquote em
+        color #aaaaaa
+
+blockquote em a
+    color #aaaaaa
+    text-decoration none
+    &:hover
+        text-decoration underline
+
+blockquote b
+    &#highlight
+        highlighted(color)
